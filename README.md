@@ -1,9 +1,10 @@
 # FY-Codes
-A repository containing codes for FY Mechanical BTech.
+A repository containing assignment codes for FY Mechanical BTech.
 # Languages Used:
 1. C
 2. Python
 # Note
-Please note that these codes are meant for FY Btech Mechanical. 
-College: PES MCOE
-University: SPPU
+1. These codes are meant for FY Btech Mechanical.
+2. Portion might be same across all branches FY.
+3. College: PES MCOE
+4. University: SPPU
