@@ -1,0 +1,7 @@
+a = int(input("Enter first number: ")) #4
+b = int(input("Enter second number: ")) #5
+c = a #4
+a = b #5
+b = c #4
+print("Swapping the numbers...")
+print("First number: " + str(a) + "\nSecond Number: " + str(b))
