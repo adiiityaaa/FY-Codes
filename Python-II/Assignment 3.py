@@ -1,4 +1,4 @@
-#this is an advance version of the code.
+#dynamic version with selective class:
 class Person:
     def __init__(self, name, age, gender):
         self.name = name
@@ -10,7 +10,7 @@ class Student(Person):
         print("I like to study.")
 class Teacher(Person):
     def teaches(self):
-        print("I am " + self.name)
+        print("I am " + self.name + ".")
         print("I like to teach.")
 
 def main():
@@ -28,5 +28,21 @@ def main():
     else:
         print("Invalid Choice, Dummy.")
  
-
 main()
+
+#basic version with defined object:
+class Person:
+    def __init__(self, age, gender):
+        self.age = age
+        self.gender = gender
+class Student(Person): 
+    def studies(self):
+        print("I study.")
+class Teacher(Person):
+    def teaches(self):
+        print("I teach.")
+
+x = Student("18", "Male")
+x.studies()
+y = Teacher("40", "Female")
+y.teaches()
