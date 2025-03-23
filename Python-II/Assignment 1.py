@@ -68,3 +68,37 @@ def main():
         print("Invalid Choice.")
         
 main()        
+
+# Basic version of the code via ChatGPT based on Pseudocode
+import math
+class ShapeCalculations:
+    def triangle_calculations(self, a, b, c):
+        s = (a + b + c) // 2  
+        area = int(math.sqrt(s * (s - a) * (s - b) * (s - c)))
+        perimeter = a + b + c
+        return area, perimeter
+    def rectangle_calculations(self, length, width):
+        area = length * width
+        perimeter = 2 * (length + width)
+        return area, perimeter
+    def circle_calculations(self, radius):
+        area = int(3.14 * radius ** 2)
+        circumference = int(2 * 3.14 * radius)
+        return area, circumference
+    def square_calculations(self, side):
+        area = side ** 2
+        perimeter = 4 * side
+        return area, perimeter
+
+def main():
+    calc = ShapeCalculations()
+    tri_area, tri_perimeter = calc.triangle_calculations(3, 4, 5)
+    print(f"Triangle Area: {tri_area}, Perimeter: {tri_perimeter}")
+    rect_area, rect_perimeter = calc.rectangle_calculations(10, 5)
+    print(f"Rectangle Area: {rect_area}, Perimeter: {rect_perimeter}")
+    circ_area, circ_circumference = calc.circle_calculations(7)
+    print(f"Circle Area: {circ_area}, Circumference: {circ_circumference}")
+    sq_area, sq_perimeter = calc.square_calculations(6)
+    print(f"Square Area: {sq_area}, Perimeter: {sq_perimeter}")
+
+main()
