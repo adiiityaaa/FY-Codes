@@ -9,18 +9,34 @@ salaries = []
 ids = []
 genders = []
 
-x = int(input("Enter number for Employees:\n"))
-for i in range(x):
+
+while True:
+    try: 
+        num = int(input("Enter number for Employees:\n"))
+        break
+    except ValueError:
+        print("Number of Employees should be a number.")
+for i in range(num):
     namei = input("Enter Employee Name: ")
     names.append(namei)
     idi = input("Enter Employee ID: ")
     ids.append(idi)
     genderi = input("Enter Employee Gender: ")
-    genders.append(genderi)    
-    agei = int(input("Enter Employee Age: "))
-    ages.append(agei)
-    salaryi = int(input("Enter Employee Salary: "))
-    salaries.append(salaryi)
+    genders.append(genderi) 
+    while True:
+        try: 
+            agei = int(input("Enter Employee Age: "))
+            ages.append(agei)
+            break
+        except ValueError:
+            print("Age should be a number.")
+    while True:
+        try: 
+            salaryi = int(input("Enter Employee Salary: "))
+            salaries.append(salaryi)
+            break
+        except ValueError:
+            print("Salary should be a number.")
     
 rawdata = {
     "Name": names,
@@ -33,48 +49,50 @@ rawdata = {
 data = pd.DataFrame(rawdata)
 
 while True:
-    val = int(input("\n\nAvailable Options:\n\n1. Search by Name\n2. Search by ID\n3. Show Maximum Salary\n4. Show Minimum Salary\n5. Show All Employees\n0. Exit\n"))
-    if(val == 1):
-        clear_output(wait=True)
-        sname = input("Enter Employee Name: ")
-        snamer = data[data["Name"] == sname] 
-        if(snamer.empty):
-            print("\nNo matching Employee found!")
-        else:
-            print("\nEmployee with Matching Name:\n")
-            print(snamer)
-    elif(val == 2):
-        clear_output(wait=True)
-        sid = input("Enter Employee ID: ")
-        sidr = data[data["ID"] == sid] 
-        if(sidr.empty):
-            print("\nNo matching Employee found!")
-        else:
-            print("\nEmployee with Matching Name:\n")
-            print(sidr)
-    elif(val == 3):
-        clear_output(wait=True)
-        maxs = data["Salary"].max()
-        maxr = data[data["Salary"] == maxs]
-        print("\nMaximum Salary Record:\n")
-        print(maxr)
-    elif(val == 4):
-        clear_output(wait=True)
-        mins = data["Salary"].min()
-        minr = data[data["Salary"] == mins]
-        print("\nMinimum Salary Record:\n")
-        print(minr)
-    elif(val == 5):
-        clear_output(wait=True)
-        print("\nAll Employee Record:\n")
-        print(data)
-    elif(val == 0):
-        clear_output(wait=True)
-        print("Have a Nice Day!")
-        break
-    else:
-        print("Invalid Option!")
-        break
+        try:
+            val = int(input("\n\nAvailable Options:\n\n1. Search by Name\n2. Search by ID\n3. Show Maximum Salary\n4. Show Minimum Salary\n5. Show All Employees\n0. Exit\n"))
+            if(val == 1):
+                clear_output(wait=True)
+                sname = input("Enter Employee Name: ")
+                snamer = data[data["Name"] == sname] 
+                if(snamer.empty):
+                    print("\nNo matching Employee found!")
+                else:
+                    print("\nEmployee with Matching Name:\n")
+                    print(snamer)
+            elif(val == 2):
+                clear_output(wait=True)
+                sid = input("Enter Employee ID: ")
+                sidr = data[data["ID"] == sid] 
+                if(sidr.empty):
+                    print("\nNo matching Employee found!")
+                else:
+                    print("\nEmployee with Matching Name:\n")
+                    print(sidr)
+            elif(val == 3):
+                clear_output(wait=True)
+                maxs = data["Salary"].max()
+                maxr = data[data["Salary"] == maxs]
+                print("\nMaximum Salary Record:\n")
+                print(maxr)
+            elif(val == 4):
+                clear_output(wait=True)
+                mins = data["Salary"].min()
+                minr = data[data["Salary"] == mins]
+                print("\nMinimum Salary Record:\n")
+                print(minr)
+            elif(val == 5):
+                clear_output(wait=True)
+                print("\nAll Employee Record:\n")
+                print(data)
+            elif(val == 0):
+                clear_output(wait=True)
+                print("Have a Nice Day!")
+                break
+            else:
+                print("Invalid Option!")
+        except ValueError:
+            print("Option should be a number.")
 
 # basic version: [from the classroom]
 import pandas as pd
